@@ -13,12 +13,22 @@ public class App {
     get("/", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
       // model.put("restaurant")
+      model.put("restaurant", request.session().attribute("restaurant"));
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
     post("/success", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
+
+      String restaurantNameInput = request.queryParams("restaurantName");
+      String restaurantTypeInput = request.queryParams("restaurantType");
+      String restaurantCostInput = request.queryParams("restaurantCost");
+      String restaurantNotesInput = request.queryParams("restaurantNotes");
+
+      Restaurant newRestaurant = new Restaurant(restaurantNameInput);
+      request.session().attribute("restaurant", newRestaurant);
+
       model.put("template", "templates/success.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
