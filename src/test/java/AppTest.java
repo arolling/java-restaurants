@@ -34,6 +34,15 @@ public class AppTest extends FluentTest {
     goTo("http://localhost:4567/");
     fill("#restaurantName").with("LBB");
     submit(".btn");
-    assertThat(pageSource()).contains("Go back");
+    assertThat(pageSource()).contains("Go Back");
+  }
+
+  @Test
+  public void createsARestaurantObject() {
+    goTo("http://localhost:4567/");
+    fill("#restaurantName").with("LBB");
+    submit(".btn");
+    click("a", withText("Go Back"));
+    assertThat(pageSource()).contains("LBB");
   }
 }
