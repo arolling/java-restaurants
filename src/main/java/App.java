@@ -29,6 +29,11 @@ public class App {
       Restaurant newRestaurant = new Restaurant(restaurantNameInput);
       request.session().attribute("restaurant", newRestaurant);
 
+      newRestaurant.setPriceRange(restaurantCostInput);
+      newRestaurant.setType(restaurantTypeInput);
+      newRestaurant.setNotes(restaurantNotesInput);
+      
+
       model.put("template", "templates/success.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
