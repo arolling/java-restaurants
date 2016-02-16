@@ -41,8 +41,8 @@ public class App {
       newRestaurant.setNotes(restaurantNotesInput);
 
       restaurants.add(newRestaurant);
-
-      model.put("template", "templates/success.vtl");
+      model.put("restaurants", request.session().attribute("restaurants"));
+      model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
   }

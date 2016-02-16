@@ -32,11 +32,11 @@ public class AppTest extends FluentTest {
   }
 
   @Test
-  public void generatesSuccessPage() {
+  public void staysOnIndexPage() {
     goTo("http://localhost:4567/");
     fill("#restaurantName").with("LBB");
     submit(".btn");
-    assertThat(pageSource()).contains("Go Back");
+    assertThat(pageSource()).contains("Restaurant");
   }
 
   @Test
@@ -44,7 +44,7 @@ public class AppTest extends FluentTest {
     goTo("http://localhost:4567/");
     fill("#restaurantName").with("LBB");
     submit(".btn");
-    click("a", withText("Go Back"));
+    //click("a", withText("Go Back"));
     assertThat(pageSource()).contains("LBB");
   }
 
@@ -57,7 +57,7 @@ public class AppTest extends FluentTest {
     Select select = new Select(webDriver.findElement(By.id("restaurantCost")));
     select.selectByValue("deluxe");
     submit(".btn");
-    click("a", withText("Go Back"));
+    //click("a", withText("Go Back"));
     assertThat(pageSource()).contains("The sushi restaurant LBB has deluxe pricing. I had this to say about it: The restaurant was always busy.");
   }
 
@@ -70,14 +70,14 @@ public class AppTest extends FluentTest {
     Select select = new Select(webDriver.findElement(By.id("restaurantCost")));
     select.selectByValue("deluxe");
     submit(".btn");
-    click("a", withText("Go Back"));
+    //click("a", withText("Go Back"));
     fill("#restaurantName").with("sushi land");
     fill("#restaurantType").with("burger");
     fill("#restaurantNotes").with("The restaurant was always empty.");
     Select newSelect = new Select(webDriver.findElement(By.id("restaurantCost")));
     newSelect.selectByValue("good value");
     submit(".btn");
-    click("a", withText("Go Back"));
+    //click("a", withText("Go Back"));
     assertThat(pageSource()).contains("The sushi restaurant LBB has deluxe pricing. I had this to say about it: The restaurant was always busy.");
     assertThat(pageSource()).contains("The burger restaurant sushi land has good value pricing. I had this to say about it: The restaurant was always empty.");
   }
