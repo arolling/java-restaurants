@@ -58,6 +58,27 @@ public class AppTest extends FluentTest {
     select.selectByValue("deluxe");
     submit(".btn");
     click("a", withText("Go Back"));
-    assertThat(pageSource()).contains("The sushi restaurant LBB has deluxe pricing. I had this to say about it:<br>The restaurant was always busy.");
+    assertThat(pageSource()).contains("The sushi restaurant LBB has deluxe pricing. I had this to say about it: The restaurant was always busy.");
+  }
+
+  @Test
+  public void createsMultipleRestaurantObjectsWithManyAttributes() {
+    goTo("http://localhost:4567/");
+    fill("#restaurantName").with("LBB");
+    fill("#restaurantType").with("sushi");
+    fill("#restaurantNotes").with("The restaurant was always busy.");
+    Select select = new Select(webDriver.findElement(By.id("restaurantCost")));
+    select.selectByValue("deluxe");
+    submit(".btn");
+    click("a", withText("Go Back"));
+    fill("#restaurantName").with("sushi land");
+    fill("#restaurantType").with("burger");
+    fill("#restaurantNotes").with("The restaurant was always empty.");
+    Select newSelect = new Select(webDriver.findElement(By.id("restaurantCost")));
+    newSelect.selectByValue("good value");
+    submit(".btn");
+    click("a", withText("Go Back"));
+    assertThat(pageSource()).contains("The sushi restaurant LBB has deluxe pricing. I had this to say about it: The restaurant was always busy.");
+    assertThat(pageSource()).contains("The burger restaurant sushi land has good value pricing. I had this to say about it: The restaurant was always empty.");
   }
 }

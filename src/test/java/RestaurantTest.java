@@ -30,7 +30,7 @@ public class RestaurantTest {
     testRestaurant.setPriceRange("deluxe");
     testRestaurant.setType("sushi");
     testRestaurant.setNotes("Always busy, must make reservations.");
-    assertEquals("The sushi restaurant LBB has deluxe pricing. I had this to say about it:<br>Always busy, must make reservations.", testRestaurant.getDescription());
+    assertEquals("The sushi restaurant LBB has deluxe pricing. I had this to say about it: Always busy, must make reservations.", testRestaurant.getDescription());
   }
 
 }

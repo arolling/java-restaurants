@@ -24,6 +24,7 @@
   <button type="submit" name="button" class="btn btn-success">Submit</button>
 </form>
 <hr />
-#if ($restaurant)
-  $restaurant.getDescription();
+#foreach ($restaurant in $restaurants)
+  $restaurant.getDescription()
+  <hr>
 #end

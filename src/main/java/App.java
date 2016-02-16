@@ -12,14 +12,21 @@ public class App {
 
     get("/", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
-      // model.put("restaurant")
-      model.put("restaurant", request.session().attribute("restaurant"));
+
+      model.put("restaurants", request.session().attribute("restaurants"));
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
     post("/success", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
+
+      ArrayList<Restaurant> restaurants = request.session().attribute("restaurants");
+
+      if(restaurants == null) {
+        restaurants = new ArrayList<Restaurant>();
+        request.session().attribute("restaurants", restaurants);
+      }
 
       String restaurantNameInput = request.queryParams("restaurantName");
       String restaurantTypeInput = request.queryParams("restaurantType");
@@ -31,7 +38,9 @@ public class App {
 
       newRestaurant.setPriceRange(restaurantCostInput);
       newRestaurant.setType(restaurantTypeInput);
-      newRestaurant.setNotes(restaurantNotesInput);  
+      newRestaurant.setNotes(restaurantNotesInput);
+
+      restaurants.add(newRestaurant);
 
       model.put("template", "templates/success.vtl");
       return new ModelAndView(model, layout);

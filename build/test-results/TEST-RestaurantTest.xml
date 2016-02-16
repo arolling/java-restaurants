@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="RestaurantTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2016-02-16T22:19:45" hostname="epicodus-66.local" time="0.001">
+<testsuite name="RestaurantTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2016-02-16T23:10:37" hostname="epicodus-66.local" time="0.002">
   <properties/>
   <testcase name="setNotes_setsNotesAboutRestaurantFromUserInput_AlwaysBusy" classname="RestaurantTest" time="0.0"/>
-  <testcase name="setType_setsTypeOfFoodFromUserInput_Sushi" classname="RestaurantTest" time="0.0"/>
+  <testcase name="setType_setsTypeOfFoodFromUserInput_Sushi" classname="RestaurantTest" time="0.001"/>
   <testcase name="setPriceRange_setsPriceRangeFromUserInput_Deluxe" classname="RestaurantTest" time="0.0"/>
-  <testcase name="getDescription_getsCompleteSentenceDescribingRestaurant_longString" classname="RestaurantTest" time="0.0"/>
+  <testcase name="getDescription_getsCompleteSentenceDescribingRestaurant_longString" classname="RestaurantTest" time="0.001"/>
   <testcase name="Restaurant_instantiatesCorrectly_true" classname="RestaurantTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
