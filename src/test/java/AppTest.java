@@ -23,9 +23,17 @@ public class AppTest extends FluentTest {
   public static ServerRule server = new ServerRule();
 
   //Integration testing
-  // @Test
-  // public void rootTest() {
-  //   goTo("http://localhost:4567/");
-  //   assertThat(pageSource()).contains("Leap year detector");
-  // }
+  @Test
+  public void rootTest() {
+    goTo("http://localhost:4567/");
+    assertThat(pageSource()).contains("Restaurant");
+  }
+
+  @Test
+  public void generatesSuccessPage() {
+    goTo("http://localhost:4567/");
+    fill("#restaurantName").with("LBB");
+    submit(".btn");
+    assertThat(pageSource()).contains("Go back");
+  }
 }
