@@ -8,6 +8,10 @@ public class RestaurantTest {
     Restaurant testRestaurant = new Restaurant("LBB");
     assertEquals(true, testRestaurant instanceof Restaurant);
   }
-
+  @Test
+  public void setPriceRange_setsPriceRangeFromUserInput_Deluxe() {
+    Restaurant testRestaurant = new Restaurant("LBB");
+    assertEquals("Deluxe", testRestaurant.setPriceRange("Deluxe"));
+  }
 
 }
