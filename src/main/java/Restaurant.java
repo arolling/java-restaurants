@@ -24,4 +24,7 @@ public class Restaurant {
     return mNotes;
   }
 
+  public String getDescription() {
+    return "The " + mType + " restaurant " + mName + " has " + mPriceRange + " pricing. I had this to say about it:\n"  + mNotes;
+  }
 }

@@ -24,4 +24,13 @@ public class RestaurantTest {
     assertEquals("Always busy", testRestaurant.setNotes("Always busy"));
   }
 
+  @Test
+  public void getDescription_getsCompleteSentenceDescribingRestaurant_longString(){
+    Restaurant testRestaurant = new Restaurant("LBB");
+    testRestaurant.setPriceRange("deluxe");
+    testRestaurant.setType("sushi");
+    testRestaurant.setNotes("Always busy, must make reservations.");
+    assertEquals("The sushi restaurant LBB has deluxe pricing. I had this to say about it:\nAlways busy, must make reservations.", testRestaurant.getDescription());
+  }
+
 }
