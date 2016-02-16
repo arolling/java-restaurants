@@ -14,4 +14,14 @@ public class Restaurant {
     return mPriceRange;
   }
 
+  public String setType(String type) {
+    mType = type;
+    return mType;
+  }
+
+  public String setNotes(String notes) {
+    mNotes = notes;
+    return mNotes;
+  }
+
 }
