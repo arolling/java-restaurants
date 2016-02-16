@@ -58,6 +58,6 @@ public class AppTest extends FluentTest {
     select.selectByValue("deluxe");
     submit(".btn");
     click("a", withText("Go Back"));
-    assertThat(pageSource()).contains("The sushi restaurant LBB has deluxe pricing. I had this to say about it:\nThe restaurant was always busy.");
+    assertThat(pageSource()).contains("The sushi restaurant LBB has deluxe pricing. I had this to say about it:<br>The restaurant was always busy.");
   }
 }

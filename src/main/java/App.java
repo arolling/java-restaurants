@@ -31,8 +31,7 @@ public class App {
 
       newRestaurant.setPriceRange(restaurantCostInput);
       newRestaurant.setType(restaurantTypeInput);
-      newRestaurant.setNotes(restaurantNotesInput);
-      
+      newRestaurant.setNotes(restaurantNotesInput);  
 
       model.put("template", "templates/success.vtl");
       return new ModelAndView(model, layout);

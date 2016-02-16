@@ -1,4 +1,4 @@
-Restaurant
+<h1>Restaurant Recommendations</h1>
 <form action="/success" method="post">
   <div class="form-group">
     <label for="restaurantName">Enter restaurant name:</label>
@@ -11,16 +11,19 @@ Restaurant
   <div class="form-group">
     <label for="restaurantCost">Enter restaurant cost:</label>
     <select class="form-control" name="restaurantCost" id="restaurantCost">
-      <option id="value" value="good value"></option>
-      <option id="mid-range" value="mid-range"></option>
-      <option id="deluxe" value="deluxe"></option>
+      <option id="empty" value=""></option>
+      <option id="value" value="good value">Good Value</option>
+      <option id="mid-range" value="mid-range">Mid-range</option>
+      <option id="deluxe" value="deluxe">Deluxe</option>
     </select>
   </div>
   <div class="form-group">
     <label for="restaurantNotes">Enter restaurant notes:</label>
     <textarea rows="3" type="text" name="restaurantNotes" id="restaurantNotes" class="form-control"></textarea>
   </div>
-  <button type="submit" name="button" class="btn btn-default"></button>
+  <button type="submit" name="button" class="btn btn-success">Submit</button>
 </form>
-
-$restaurant.getDescription();
+<hr />
+#if ($restaurant)
+  $restaurant.getDescription();
+#end
