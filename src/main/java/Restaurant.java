@@ -1,9 +1,16 @@
-public class Restaurant {
+import java.util.*;
+
+public class Restaurant implements Comparable<Restaurant> {
 
   private String mName;
   private String mType;
   private String mPriceRange;
   private String mNotes;
+
+  @Override
+  public int compareTo(Restaurant other) {
+    return mName.compareTo(other.mName);
+  }
 
   public Restaurant(String name) {
     mName = name;
