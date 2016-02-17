@@ -42,7 +42,7 @@ public class App {
       newRestaurant.setNotes(restaurantNotesInput);
 
       restaurants.add(newRestaurant);
-      Collections.sort((ArrayList<Restaurant>) request.session().attribute("restaurants"));
+      Collections.sort(restaurants);
       model.put("restaurants", request.session().attribute("restaurants"));
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
